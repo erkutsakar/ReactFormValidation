@@ -1,6 +1,6 @@
 
 import Signup from  './components/signup';
-
+import './App.css';
 
 
 function App() {

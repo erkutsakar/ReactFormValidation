@@ -8,7 +8,7 @@ function Signup() {
 
 
 
-    const {handleSubmit,handleChange,values} = useFormik({
+    const {handleSubmit,handleChange,handleBlur, touched,values,errors} = useFormik({
         initialValues: {
            email: "erkutsakar@hotmail.com",
            password:'',
@@ -20,6 +20,8 @@ function Signup() {
     validationSchema,
       });
 
+      
+
 
       return (
         <div className="App">
@@ -29,15 +31,23 @@ function Signup() {
               <form onSubmit={handleSubmit}>
                
                 <label>Email</label>
-                <input name="email" value={values.email} onChange={handleChange} />
-                 
+                <input name="email" value={values.email} onChange={handleChange} onBlur={handleBlur}/>
+                 {errors.email && touched.email && (<div className='error'>{errors.email}</div>)}
                <br />
                <label>Password</label>
-                <input name="password" value={values.password} onChange={handleChange} />
+                <input name="password" 
+                value={values.password} 
+                onChange={handleChange} 
+                onBlur={handleBlur}/>
+                {errors.password && touched.password && (<div className='error'>{errors.password}</div>)}
                <br />
         
                <label>Confirm Password</label>
-                <input name="passwordConfirm" value={values.passwordConfirm} onChange={handleChange} />
+                <input name="passwordConfirm" 
+                value={values.passwordConfirm} 
+                onChange={handleChange} />
+
+                {errors.passwordConfirm && touched.passwordConfirm && (<div className='error'>{errors.passwordConfirm}</div>)}
                 <br />
                 <button type="submit">Submit</button>
         
