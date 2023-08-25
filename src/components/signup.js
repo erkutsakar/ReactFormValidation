@@ -46,7 +46,6 @@ function Signup() {
                 <input name="passwordConfirm" 
                 value={values.passwordConfirm} 
                 onChange={handleChange} />
-
                 {errors.passwordConfirm && touched.passwordConfirm && (<div className='error'>{errors.passwordConfirm}</div>)}
                 <br />
                 <button type="submit">Submit</button>
